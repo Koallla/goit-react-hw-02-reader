@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import styles from './controls.module.css';
 
 const Controls = ({
   onDecrement,
@@ -10,15 +11,21 @@ const Controls = ({
   <Fragment>
     <button
       type="button"
-      className="onDecrement"
-      onClick={prevBtnDisabled ? onDecrement : null}
+      className={
+        prevBtnDisabled ? styles.onDecrementEnable : styles.onDecrementDisabled
+      }
+      onClick={onDecrement}
+      disabled={!prevBtnDisabled}
     >
       Назад
     </button>
     <button
       type="button"
-      className="onIncrement"
-      onClick={nextBtnDisabled ? onIncrement : null}
+      className={
+        nextBtnDisabled ? styles.onDecrementEnable : styles.onDecrementDisabled
+      }
+      onClick={onIncrement}
+      disabled={!nextBtnDisabled}
     >
       Вперед
     </button>

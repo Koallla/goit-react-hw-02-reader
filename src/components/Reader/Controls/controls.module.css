@@ -1,0 +1,9 @@
+.onDecrementEnable {
+  background-color: #2196f3;
+  color: #ffffff;
+}
+
+.onDecrementDisabled {
+  background-color: #0000001f;
+  color: #00000042;
+}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import T from 'prop-types';
-import Controls from './Controls';
+import Controls from './Controls/Controls';
 import Progress from './Progress/Progress';
 import Publication from './Publication/Publication';
-// import publications from './publications.json';
+import styles from './reader.module.css';
 
 export default class Reader extends Component {
   static defaultProps = {
@@ -25,31 +25,26 @@ export default class Reader extends Component {
   };
 
   handleIncrement = () => {
-    this.setState(state => ({
-      publicationIndex: state.publicationIndex + 1,
+    this.setState(prevState => ({
+      publicationIndex: prevState.publicationIndex + 1,
     }));
   };
 
   handleDecrement = () => {
-    this.setState(state => ({
-      publicationIndex: state.publicationIndex - 1,
+    this.setState(prevState => ({
+      publicationIndex: prevState.publicationIndex - 1,
     }));
   };
 
   render() {
     const { items } = this.props;
     const { publicationIndex } = this.state;
-
     const publication = items[publicationIndex];
-
     const disableBtnNext = publicationIndex !== items.length - 1;
     const disableBtnPrev = publicationIndex !== 0;
 
-    console.log(this.props);
-    console.log(items.length);
-
     return (
-      <div>
+      <div className={styles.reader}>
         <Controls
           onIncrement={this.handleIncrement}
           onDecrement={this.handleDecrement}
