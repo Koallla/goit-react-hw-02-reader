@@ -10,6 +10,7 @@ const Controls = ({
 }) => (
   <Fragment>
     <button
+      name="prev"
       type="button"
       className={
         prevBtnDisabled ? styles.onDecrementEnable : styles.onDecrementDisabled
@@ -20,6 +21,7 @@ const Controls = ({
       Назад
     </button>
     <button
+      name="next"
       type="button"
       className={
         nextBtnDisabled ? styles.onDecrementEnable : styles.onDecrementDisabled
@@ -35,7 +37,7 @@ const Controls = ({
 Controls.propTypes = {
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
-  prevBtnDisabled: PropTypes.bool.isRequired,
+  prevBtnDisabled: PropTypes.number.isRequired,
   nextBtnDisabled: PropTypes.bool.isRequired,
 };
 

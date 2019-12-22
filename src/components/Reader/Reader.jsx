@@ -24,16 +24,15 @@ export default class Reader extends Component {
     publicationIndex: 0,
   };
 
-  handleIncrement = () => {
-    this.setState(prevState => ({
-      publicationIndex: prevState.publicationIndex + 1,
-    }));
-  };
-
-  handleDecrement = () => {
-    this.setState(prevState => ({
-      publicationIndex: prevState.publicationIndex - 1,
-    }));
+  handleIncrement = e => {
+    // eslint-disable-next-line no-unused-expressions
+    e.target.name === 'next'
+      ? this.setState(prevState => ({
+          publicationIndex: prevState.publicationIndex + 1,
+        }))
+      : this.setState(prevState => ({
+          publicationIndex: prevState.publicationIndex - 1,
+        }));
   };
 
   render() {
@@ -41,13 +40,13 @@ export default class Reader extends Component {
     const { publicationIndex } = this.state;
     const publication = items[publicationIndex];
     const disableBtnNext = publicationIndex !== items.length - 1;
-    const disableBtnPrev = publicationIndex !== 0;
+    const disableBtnPrev = publicationIndex;
 
     return (
       <div className={styles.reader}>
         <Controls
           onIncrement={this.handleIncrement}
-          onDecrement={this.handleDecrement}
+          onDecrement={this.handleIncrement}
           nextBtnDisabled={disableBtnNext}
           prevBtnDisabled={disableBtnPrev}
         />

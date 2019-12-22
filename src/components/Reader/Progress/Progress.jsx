@@ -1,12 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const Progress = ({ currentPage, totalPages }) => (
-  <Fragment>
-    <p>
-      {currentPage}/{totalPages}
-    </p>
-  </Fragment>
+  <p>
+    {currentPage}/{totalPages}
+  </p>
 );
 
 Progress.propTypes = {
